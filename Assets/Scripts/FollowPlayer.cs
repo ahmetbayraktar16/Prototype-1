@@ -7,20 +7,14 @@ public class FollowPlayer : MonoBehaviour
     public Camera mainCamera;
     public Camera sideCamera;
     public GameObject player;
-    private Vector3 mainOffset = new Vector3 (0, 5, -7);
-    private Vector3 sideOffset = new Vector3 (0, 2, 1.5f);
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Vector3 mainOffset = new Vector3(0, 5, -7);
+    [SerializeField] Vector3 sideOffset = new Vector3(0, 2, 1.5f);
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
-            if(mainCamera.gameObject.activeSelf)
+            if (mainCamera.gameObject.activeSelf)
             {
                 mainCamera.gameObject.SetActive(false);
                 sideCamera.gameObject.SetActive(true);
@@ -32,7 +26,7 @@ public class FollowPlayer : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
+
     void LateUpdate()
     {
         //Offset the camera behind the player by adding to the player's position
